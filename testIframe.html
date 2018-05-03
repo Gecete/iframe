@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<style>
+
+
+.tall {
+    height: 300px;
+    width: 600px;
+    border: solid green
+}
+.short {
+    height: 200px;
+    width: 400px;
+    border: solid red;
+}
+
+</style>
+<script>
+
+         $(document).ready(function(){
+         
+         $('.content').click(function() {
+                $(this).toggleClass('short');
+         });
+         
+      });
+  
+</script>
+
+<body id="element" class="content tall"> 
+   <button>click</button>
+</body>
+
+</html>
