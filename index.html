@@ -22,12 +22,9 @@
 </style>
 <script>
          $(document).ready(function(){
-            var domain = 'https://gecete.github.io';
-            var myPopup = window.open(domain + '/iframe','myWindow');
-
          $('.content').click(function() {
                 $(this).toggleClass('short');
-                myPopup.postMessage('hola', '*');
+                window.postMessage('hola', '*');
          });
          
       });
