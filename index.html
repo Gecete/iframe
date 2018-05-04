@@ -23,12 +23,12 @@
 
          $(document).ready(function(){
             var height=document.getElementsByTagName('body')[0].clientHeight;
-             window.top.postMessage([{channel: 'Login',height}], '*');
+             window.top.postMessage([{height}], '*');
          $('.content').click(function() {
             $(this).toggleClass('short');
 
-             var height=document.getElementsByTagName('body')[0].clientHeight;
-             window.top.postMessage([{channel: 'Login',height}], '*');
+             height=document.getElementsByTagName('body')[0].clientHeight;
+             window.top.postMessage([{height}], '*');
          });
          
       });
