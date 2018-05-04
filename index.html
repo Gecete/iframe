@@ -23,12 +23,12 @@
 
          $(document).ready(function(){
             var height=document.getElementsByTagName('body')[0].clientHeight;
-             window.top.postMessage([{height}], 'http://62.105.168.220');
+             window.top.postMessage([{height}], '*');
          $('.content').click(function() {
             $(this).toggleClass('short');
 
              height=document.getElementsByTagName('body')[0].clientHeight;
-             window.top.postMessage([{height}], 'http://62.105.168.220');
+             window.top.postMessage([{height}], '*');
          });
          
       });
