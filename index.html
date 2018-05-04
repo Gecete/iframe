@@ -22,7 +22,8 @@
 <script>
 
          $(document).ready(function(){
-         
+            var height=document.getElementsByTagName('body')[0].clientHeight;
+             window.top.postMessage([{channel: 'Login',height}], '*');
          $('.content').click(function() {
             $(this).toggleClass('short');
 
