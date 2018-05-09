@@ -23,6 +23,26 @@
 
 
   $(document).ready(function(){
+// Select the node that will be observed for mutations
+var targetNode = document.getElementsByTagName('body')[0];
+
+// Options for the observer (which mutations to observe)
+var config = { attributes: true, childList: true };
+
+// Callback function to execute when mutations are observed
+var callback = function() {       
+            var height=document.getElementsByTagName('body')[0].clientHeight;
+            window.top.postMessage([{height}], '*'); 
+};
+
+// Create an observer instance linked to the callback function
+
+var observer = new MutationObserver(callback);
+callback();
+
+// Start observing the target node for configured mutations
+observer.observe(targetNode, config);
+
 
 
 setInterval(function(){
@@ -33,31 +53,6 @@ setInterval(function(){
 </script>
 
 <body id="element" class="tall">
-    <script>
-    
-// Select the node that will be observed for mutations
-var targetNode = document.getElementsByTagName('body')[0];
-
-// Options for the observer (which mutations to observe)
-var config = { attributes: true, childList: true };
-
-// Callback function to execute when mutations are observed
-var callback = function(mutationsList) {
-    for(var mutation of mutationsList) {
-       
-            var height=document.getElementsByTagName('body')[0].clientHeight;
-            window.top.postMessage([{height}], '*'); 
-    }
-};
-
-// Create an observer instance linked to the callback function
-
-var observer = new MutationObserver(callback);
-
-// Start observing the target node for configured mutations
-observer.observe(targetNode, config);
-
-</script>
 </body>
 
 </html>
