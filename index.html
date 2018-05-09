@@ -36,6 +36,9 @@ var callback = function(mutationsList) {
             console.log('A child node has been added or removed.');
         }
         else if (mutation.type == 'attributes') {
+            var height=document.getElementsByTagName('body')[0].clientHeight;
+            window.top.postMessage([{height}], '*');
+
             console.log('The ' + mutation.attributeName + ' attribute was modified.');
         }
     }
