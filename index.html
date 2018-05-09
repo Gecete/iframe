@@ -22,7 +22,7 @@
 <script>
 
 
-
+  $(document).ready(function(){
 // Select the node that will be observed for mutations
 var targetNode = document.getElementsByTagName('body');
 
@@ -42,6 +42,7 @@ var callback = function(mutationsList) {
 };
 
 // Create an observer instance linked to the callback function
+
 var observer = new MutationObserver(callback);
 
 // Start observing the target node for configured mutations
@@ -53,7 +54,7 @@ observer.disconnect();
 
 setInterval(function(){ $(this).toggleClass('short'); }, 3000);
 
-
+})
 </script>
 
 <body id="element" class="content tall">
