@@ -23,6 +23,11 @@
 
 
 $(document).ready(function(){
+    if (!window.postMessage || ! window.MutationObserver)
+    {
+        return;
+    }
+    else{
     // Select the node that will be observed for mutations
     var targetNode = document.getElementsByTagName('body')[0];
 
@@ -32,18 +37,15 @@ $(document).ready(function(){
     // Callback function to execute when mutations are observed
     var callback = function() {       
         var height=document.getElementsByTagName('body')[0].clientHeight;
-        if(window.postMessage){
         window.top.postMessage([{height}], '*'); 
-        }
     };
 
-    if(window.MutationObserver){
         // Create an observer instance linked to the callback function
         var observer = new MutationObserver(callback);
         callback();
         // Start observing the target node for configured mutations
         observer.observe(targetNode, config);
-    }
+    }    
 })
 setInterval(function(){
  $('body').toggleClass('short');
