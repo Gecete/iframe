@@ -22,30 +22,30 @@
 <script>
 
 
-$(document).ready(function(){
-    if (!window.postMessage || ! window.MutationObserver)
-    {
+$(document).ready(function () {
+    if (!window.postMessage || !window.MutationObserver) {
         return;
     }
-    else{
-    // Select the node that will be observed for mutations
-    var targetNode = document.getElementsByTagName('body')[0];
+    else {
+        // Select the node that will be observed for mutations
+        var targetNode = document.getElementsByTagName('body')[0];
 
-    // Options for the observer (which mutations to observe)
-    var config = { attributes: true, childList: true };
+        // Options for the observer (which mutations to observe)
+        var config = { attributes: true, childList: true };
 
-    // Callback function to execute when mutations are observed
-    var callback = function() {       
-        var height=document.getElementsByTagName('body')[0].clientHeight;
-        window.top.postMessage([{height}], '*'); 
-    };
+        // Callback function to execute when mutations are observed
+        var callback = function () {
+            var height = document.getElementsByTagName('body')[0].clientHeight;
+            window.top.postMessage([{ height }], '*');
+            window.top.postMessage([{ jsonTokenName : {"body":"{\"token_type\":\"bearer\",\"access_token\":\"AAEkZTJkNzg4ZWEtYWQ0NC00NzMyLTg3OWEtMzI4MTJlNzI4Nzg2eBlrjWl-MptcSY_HMFp0fgrm_fNVFUbi20-SZ-2NToT29gnDEM9uh5k2zrNkiayvvt3hj4-_Go-TWM_Om62V6itZQSkDKyt5Iz3C5HEhfHo\",\"expires_in\":3600,\"scope\":\"PII PHI OPENID\",\"refresh_token\":\"AAHIKEuTMWwlsbuqQ2RBfqnkgXrxl3WrFCtNeFPPKPKFeP_NN6mb_NpxD8BUz2rSn7BM7rw0TiKC8F5tCR5NdI_K8zDT6Um4WLK0pS9-DrIfgIT0ONYIhMjvDjRB02ex-l8\",\"id_token\":\"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL29wZW5pZC5hZXRuYS5jb20vY29uc3VtZXIiLCJzdWIiOiIxN09ZQ0tMTFhPT0VDSEM2TEc0VEBhZXRuYWUuY29tIiwiYXVkIjoiZTJkNzg4ZWEtYWQ0NC00NzMyLTg3OWEtMzI4MTJlNzI4Nzg2IiwiZXhwIjoxNTI2MDUzNTE2LCJpYXQiOjE1MjYwNDk5MTYsImdpdmVuX25hbWUiOiJTYW1yaXRoYSIsImZhbWlseV9uYW1lIjoidGVzdDEiLCJhY3IiOiJodHRwOi8vY29uc3VtZXIuYWV0bmEuY29tL2Fzc3VyYW5jZS9sb2EtMiIsImFlX2RnbiI6IkNOPVRlc3RfOTAzOTg4OTEsT1U9QUdCIE1lbWJlcnMsT1U9RXh0ZXJuYWwsREM9YWV0aGVxLERDPWFldG5hZXEsREM9Y29tIiwiYWVfaGNyIjoiQUlJbnRsRXhwYXQiLCJhZV9hY2NvdW50SWQiOiIxflRlc3RfOTAzOTg4OTEiLCJhZV92ZXJzaW9uIjoiMS4wLjAifQ.YzfnbpfSIvQPdqbdlVevgn9y5a0CLNy4sTeZF-ifHV0\"}","responseCode":200}}], '*');
+        };
 
         // Create an observer instance linked to the callback function
         var observer = new MutationObserver(callback);
         callback();
         // Start observing the target node for configured mutations
         observer.observe(targetNode, config);
-    }    
+    }
 })
 setInterval(function(){
  $('body').toggleClass('short');
